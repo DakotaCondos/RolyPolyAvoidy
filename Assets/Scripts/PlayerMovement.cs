@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float xVelocityMultiplier = 1f;
-    [SerializeField] float yVelocityMultiplier = 1f;
+    //[SerializeField] float yVelocityMultiplier = 1f; comment out until used
     [SerializeField] float zVelocityMultiplier = 1f;
     [SerializeField] float moveSpeed = 1f;
 
