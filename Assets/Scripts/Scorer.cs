@@ -5,7 +5,7 @@ using UnityEngine;
 public class Scorer : MonoBehaviour
 {
     [SerializeField] int levelPointsMax = 1;
-    [SerializeField] int levelPointsMin = 1;
+    //[SerializeField] int levelPointsMin = 1; comment out until used
     [SerializeField] int levelPointsCurrent = 0;
 
     void Start()

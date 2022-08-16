@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     //[SerializeField] float yVelocityMultiplier = 1f; comment out until used
     [SerializeField] float zVelocityMultiplier = 1f;
     [SerializeField] float moveSpeed = 1f;
+    [SerializeField] bool movementEnabled = true;
 
     Vector2 rawInput;
 
