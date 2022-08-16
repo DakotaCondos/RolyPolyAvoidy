@@ -14,12 +14,6 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 rawInput;
 
-
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         Move();
@@ -28,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+        if (!movementEnabled) return;
         Vector2 delta = rawInput * Time.deltaTime * moveSpeed;
         Vector3 newPos = new Vector3(
             (transform.position.x + delta.x) * xVelocityMultiplier,
@@ -40,5 +35,10 @@ public class PlayerMovement : MonoBehaviour
     private void OnMove(InputValue value)
     {
         rawInput = value.Get<Vector2>();
+    }
+
+    public void EnableMovement(bool value)
+    {
+        movementEnabled = value;
     }
 }

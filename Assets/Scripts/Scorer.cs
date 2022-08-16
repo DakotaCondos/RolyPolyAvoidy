@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Scorer : MonoBehaviour
 {
-    [SerializeField] int levelPointsMax = 1;
+    //[SerializeField] int levelPointsMax = 1;
     //[SerializeField] int levelPointsMin = 1; comment out until used
     [SerializeField] int levelPointsCurrent = 0;
 
@@ -32,5 +32,9 @@ public class Scorer : MonoBehaviour
     public void resetPoints()
     {
         levelPointsCurrent = 0;
+    }
+    public int GetPoints()
+    {
+        return levelPointsCurrent;
     }
 }
