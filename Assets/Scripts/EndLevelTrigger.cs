@@ -23,6 +23,7 @@ public class EndLevelTrigger : MonoBehaviour
         if (other.tag == "Player")
         {
             playerMovement.EnableMovement(false);
+            uiController.endLevel();
             int score = scorer.GetPoints();
             string text = $"Things touched: {score}\n";
             string yourScoreRating = "";

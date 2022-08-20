@@ -9,13 +9,25 @@ public class UIController : MonoBehaviour
     [SerializeField] TextMeshProUGUI topPanelText;
     [SerializeField] GameObject centerPanel;
     [SerializeField] TextMeshProUGUI centerPanelText;
-    [SerializeField] float displayTime = 5;
+    [SerializeField] GameObject centerPanelEscape;
+    [SerializeField] float initailMessageDisplayTime = 5;
+    [SerializeField] bool endLevelReached = false;
+    [SerializeField] bool initailMessageDisplay = false;
+    [SerializeField] string initailMessageText = "";
 
 
     void Start()
     {
+        topPanel.SetActive(false);
         centerPanel.SetActive(false);
-        FlashMessageTopDisplay("Get to the finish and dont touch anything!");
+        centerPanelEscape.SetActive(false);
+        DisplayInitialMessage();
+    }
+
+    private void DisplayInitialMessage()
+    {
+        if (initailMessageDisplay)
+            FlashMessageTopDisplay(initailMessageText);
     }
 
     void Update()
@@ -28,11 +40,29 @@ public class UIController : MonoBehaviour
         StartCoroutine(displayForSetTimeTop(text));
     }
 
+    public void escapePressed()
+    {
+        if (endLevelReached) return;
+        if (centerPanelEscape.activeInHierarchy)
+        {
+            centerPanelEscape.SetActive(false);
+        }
+        else
+        {
+            centerPanelEscape.SetActive(true);
+        }
+
+    }
+    public void endLevel()
+    {
+        endLevelReached = true;
+    }
+
     IEnumerator displayForSetTimeTop(string text)
     {
         topPanel.SetActive(true);
         topPanelText.text = text;
-        yield return new WaitForSeconds(displayTime);
+        yield return new WaitForSeconds(initailMessageDisplayTime);
         topPanel.SetActive(false);
     }
 

@@ -768,7 +768,7 @@ MonoBehaviour:
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
+  m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
 --- !u!1 &1048261259
 GameObject:
@@ -821,7 +821,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1600, y: 900}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1363,7 +1363,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5047473894539870175, guid: fa77bd44a006edd40a6413198824af7d, type: 3}
       propertyPath: nextScene
-      value: Level1
+      value: Level0
       objectReference: {fileID: 0}
     - target: {fileID: 5047473894539870175, guid: fa77bd44a006edd40a6413198824af7d, type: 3}
       propertyPath: playMusic

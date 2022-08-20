@@ -13,6 +13,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] bool movementEnabled = true;
 
     Vector2 rawInput;
+    UIController uiController;
+
+    private void Awake()
+    {
+        uiController = GetComponent<UIController>();
+    }
 
     void Update()
     {
@@ -35,6 +41,14 @@ public class PlayerMovement : MonoBehaviour
     private void OnMove(InputValue value)
     {
         rawInput = value.Get<Vector2>();
+    }
+
+    private void OnEscape(InputValue value)
+    {
+        if(uiController != null)
+        {
+            uiController.escapePressed();
+        }
     }
 
     public void EnableMovement(bool value)
