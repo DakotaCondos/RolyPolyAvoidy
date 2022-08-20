@@ -26,33 +26,24 @@ public class EndLevelTrigger : MonoBehaviour
             uiController.endLevel();
             int score = scorer.GetPoints();
             string text = $"Things touched: {score}\n";
-            string yourScoreRating = "";
-
-            switch (score)
-            {
-                case 0:
-                    yourScoreRating = "Perfect!";
-                    break;
-                case 1:
-                    yourScoreRating = "So close! Great job!";
-                    break;
-                case 2:
-                    yourScoreRating = "Excellent!";
-                    break;
-                case 3:
-                    yourScoreRating = "An Average run.";
-                    break;
-                case 4:
-                    yourScoreRating = "Not quite!";
-                    break;
-                case 5:
-                    yourScoreRating = "Try a little harder next time!";
-                    break;
-                default:
-                    yourScoreRating = "Were you even trying?";
-                    break;
-            }
-            uiController.DisplayLevelEnd(text + yourScoreRating);
+            uiController.DisplayLevelEnd(text + GetLevelPerformaceMessage(score));
         }
+    }
+
+    private string GetLevelPerformaceMessage(int score)
+    {
+        string message = score switch
+        {
+            int i when i == 0 => "Perfect!",
+            int i when i == 1 => "So close! Great job!",
+            int i when i == 2 => "Excellent!",
+            int i when i == 3 => "An Average run.",
+            int i when i == 4 => "Not quite!",
+            int i when i == 5 => "Try a little harder next time!",
+            int i when i > 5 && i <= 19 => "Were you even trying?",
+            _ => "Genuinely impressive..."
+        };
+
+        return message;
     }
 }
