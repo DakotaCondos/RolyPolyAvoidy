@@ -36,7 +36,7 @@ public class EndLevelTrigger : MonoBehaviour
                     yourScoreRating = "So close! Great job!";
                     break;
                 case 2:
-                    yourScoreRating = "Excelent!";
+                    yourScoreRating = "Excellent!";
                     break;
                 case 3:
                     yourScoreRating = "An Average run.";
