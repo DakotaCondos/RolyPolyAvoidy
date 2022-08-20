@@ -27,6 +27,7 @@ public class EndLevelTrigger : MonoBehaviour
             int score = scorer.GetPoints();
             string text = $"Things touched: {score}\n";
             string yourScoreRating = "";
+
             switch (score)
             {
                 case 0:
