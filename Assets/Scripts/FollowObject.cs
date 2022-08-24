@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class FollowObject : MonoBehaviour
 {
-    [SerializeField] GameObject objectToFollow;
-    [SerializeField] bool follow3D = false;
-    [SerializeField] bool rotateTowardsTarget = false;
-    [SerializeField] bool stopsOnCollision = false;
+    [SerializeField] public GameObject objectToFollow;
+    [SerializeField] public bool follow3D = false;
+    [SerializeField] public bool rotateTowardsTarget = false;
+    [SerializeField] public bool stopsOnCollision = false;
     bool hasCollided = false;
-    [SerializeField] GameObject objectStopsOnCollision;
-    [SerializeField] float moveSpeed = 1f;
+    [SerializeField] public GameObject objectStopsOnCollision;
+    [SerializeField] public float moveSpeed = 1f;
 
     void Update()
     {

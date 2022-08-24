@@ -5,11 +5,32 @@ using UnityEngine;
 public class Scorer : MonoBehaviour
 {
     [SerializeField] int levelPointsCurrent = 0;
+    private bool isActive = true;
+    EndLevelTrigger endLevelTrigger;
+
+    private void Awake()
+    {
+        endLevelTrigger = FindObjectOfType<EndLevelTrigger>();
+    }
+
+    void Update()
+    {
+        if (endLevelTrigger != null)
+        {
+            if (endLevelTrigger.IsEndLevelReached())
+            {
+                isActive = false;
+            }
+        }
+    }
 
 
     public void ScorePoint()
     {
-        levelPointsCurrent++;
+        if (isActive)
+        {
+            levelPointsCurrent++;
+        }
     }
 
     public void resetPoints()

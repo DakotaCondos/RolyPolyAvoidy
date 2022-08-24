@@ -7,6 +7,7 @@ public class EndLevelTrigger : MonoBehaviour
     PlayerMovement playerMovement;
     UIController uiController;
     Scorer scorer;
+    private bool endLevelReached = false;
 
     void Awake()
     {
@@ -23,6 +24,7 @@ public class EndLevelTrigger : MonoBehaviour
         if (other.tag == "Player")
         {
             playerMovement.EnableMovement(false);
+            endLevelReached = true;
             uiController.endLevel();
             int score = scorer.GetPoints();
             string text = $"Things touched: {score}\n";
@@ -45,5 +47,10 @@ public class EndLevelTrigger : MonoBehaviour
         };
 
         return message;
+    }
+
+    public bool IsEndLevelReached()
+    {
+        return endLevelReached;
     }
 }
