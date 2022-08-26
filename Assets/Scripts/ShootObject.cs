@@ -47,7 +47,7 @@ public class ShootObject : MonoBehaviour
                 projF.moveSpeed = projectileSpeed;
                 projF.rotateTowardsTarget = true;
                 projF.stopsOnCollision = true;
-                projF.objectStopsOnCollision = target;
+                projF.objectStopsOnCollision[0] = target;
             }
             DestroyAfterSeconds projD = proj.GetComponent<DestroyAfterSeconds>();
             if (projD != null)

@@ -7,9 +7,10 @@ public class FollowObject : MonoBehaviour
     [SerializeField] public GameObject objectToFollow;
     [SerializeField] public bool follow3D = false;
     [SerializeField] public bool rotateTowardsTarget = false;
+    [SerializeField] public bool rotate3D = false;
     [SerializeField] public bool stopsOnCollision = false;
     bool hasCollided = false;
-    [SerializeField] public GameObject objectStopsOnCollision;
+    [SerializeField] public GameObject[] objectStopsOnCollision;
     [SerializeField] public float moveSpeed = 1f;
 
     void Update()
@@ -35,7 +36,16 @@ public class FollowObject : MonoBehaviour
 
             if (rotateTowardsTarget)
             {
-                transform.LookAt(objectToFollow.transform);
+                if (rotate3D)
+                {
+                    transform.LookAt(objectToFollow.transform);
+                }
+                else
+                {
+                    Vector3 targetPos = objectToFollow.transform.position;
+                    Vector3 myPos = transform.position;
+                    transform.LookAt(new Vector3(targetPos.x, myPos.y, targetPos.z));
+                }
             }
         }
     }
@@ -49,9 +59,14 @@ public class FollowObject : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject == objectStopsOnCollision)
+        if (collision == null || hasCollided) return;
+
+        foreach (GameObject g in objectStopsOnCollision)
         {
-            hasCollided = true;
+            if (collision.gameObject == g)
+            {
+                hasCollided = true;
+            }
         }
     }
 

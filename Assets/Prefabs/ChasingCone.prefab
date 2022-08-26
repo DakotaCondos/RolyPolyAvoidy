@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8337722655005605410}
   - component: {fileID: 8337722655005602266}
   m_Layer: 0
-  m_Name: Cone
+  m_Name: ChasingCone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1048,8 +1048,10 @@ MonoBehaviour:
   objectToFollow: {fileID: 0}
   follow3D: 0
   rotateTowardsTarget: 1
+  rotate3D: 0
   stopsOnCollision: 1
-  objectStopsOnCollision: {fileID: 0}
+  objectStopsOnCollision:
+  - {fileID: 0}
   moveSpeed: 3
 --- !u!54 &8337722655005602266
 Rigidbody:
