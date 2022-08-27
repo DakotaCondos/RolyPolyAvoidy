@@ -16,16 +16,6 @@ public class ObjectHit : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
     }
 
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision == null) return;

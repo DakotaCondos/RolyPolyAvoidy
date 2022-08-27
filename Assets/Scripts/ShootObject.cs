@@ -10,6 +10,8 @@ public class ShootObject : MonoBehaviour
     [SerializeField] float shotsPerSecond = 1;
     [SerializeField] float projectileSpeed = 1;
     [SerializeField] float projectileLifetime = 1;
+    [SerializeField] bool destroyDumbProjectiles = true;
+    [SerializeField] float destroyDelaySeconds = .5f;
     EndLevelTrigger endLevelTrigger;
 
     private void Awake()
@@ -40,6 +42,7 @@ public class ShootObject : MonoBehaviour
         {
             GameObject proj = Instantiate(projectile, transform.position, Quaternion.identity);
             FollowObject projF = proj.GetComponent<FollowObject>();
+            DumbProjectile projDummy = proj.GetComponent<DumbProjectile>();
             if (projF != null)
             {
                 projF.objectToFollow = target;
@@ -48,6 +51,13 @@ public class ShootObject : MonoBehaviour
                 projF.rotateTowardsTarget = true;
                 projF.stopsOnCollision = true;
                 projF.objectStopsOnCollision[0] = target;
+            }
+            else if (projDummy != null)
+            {
+                projDummy.target = target;
+                projDummy.moveSpeed = projectileSpeed;
+                projDummy.destroyOnCollision = destroyDumbProjectiles;
+                projDummy.destroyDelay = destroyDelaySeconds;
             }
             DestroyAfterSeconds projD = proj.GetComponent<DestroyAfterSeconds>();
             if (projD != null)
