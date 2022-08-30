@@ -10,6 +10,7 @@ public class ShootObject : MonoBehaviour
     [SerializeField] float shotsPerSecond = 1;
     [SerializeField] float projectileSpeed = 1;
     [SerializeField] float projectileLifetime = 1;
+    [SerializeField] float initailWindupTime = 0.5f;
     [SerializeField] bool destroyDumbProjectiles = true;
     [SerializeField] float destroyDelaySeconds = .5f;
     EndLevelTrigger endLevelTrigger;
@@ -21,6 +22,7 @@ public class ShootObject : MonoBehaviour
 
     void Start()
     {
+        new WaitForSeconds(initailWindupTime);
         StartShooting();
     }
 
@@ -36,8 +38,15 @@ public class ShootObject : MonoBehaviour
     }
 
 
+
+
+
+
     IEnumerator SpawnProjectile()
     {
+        if (initailWindupTime > 0)
+            yield return new WaitForSeconds(initailWindupTime);
+
         while (isShooting)
         {
             GameObject proj = Instantiate(projectile, transform.position, Quaternion.identity);
