@@ -7,10 +7,14 @@ public class Scorer : MonoBehaviour
     [SerializeField] int levelPointsCurrent = 0;
     private bool isActive = true;
     EndLevelTrigger endLevelTrigger;
+    Scoreboard scoreboard;
+    SceneInfo sceneInfo;
 
     private void Awake()
     {
         endLevelTrigger = FindObjectOfType<EndLevelTrigger>();
+        scoreboard = FindObjectOfType<Scoreboard>();
+        sceneInfo = FindObjectOfType<SceneInfo>();
     }
 
     void Update()
@@ -19,6 +23,10 @@ public class Scorer : MonoBehaviour
         {
             if (endLevelTrigger.IsEndLevelReached())
             {
+                if (isActive)
+                {
+                    scoreboard.UpdateLevelScore(sceneInfo.levelnumber, levelPointsCurrent);
+                }
                 isActive = false;
             }
         }

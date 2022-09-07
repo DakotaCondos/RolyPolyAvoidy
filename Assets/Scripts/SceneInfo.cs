@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SceneInfo : MonoBehaviour
 {
+    [SerializeField] public int levelnumber;
     [SerializeField] string currentScene;
     [SerializeField] string nextScene;
     [SerializeField] string mainMenuSceneName = "Main Menu";

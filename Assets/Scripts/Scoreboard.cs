@@ -5,8 +5,8 @@ using UnityEngine;
 public class Scoreboard : MonoBehaviour
 {
     static Scoreboard singleton;
-    private int[] scores = new int[31];
-    int totalLevels = 31;
+    int totalLevels = 30;
+    private int[] scores;
     private void ManageSingleton()
     {
         if (singleton != null)
@@ -27,7 +27,9 @@ public class Scoreboard : MonoBehaviour
     }
     private void Start()
     {
-        for (int i = 0; i < scores.Length; i++)
+        // level 0 is ignored as a tutorial level
+        scores = new int[totalLevels + 1];
+        for (int i = 1; i < scores.Length; i++)
         {
             scores[i] = -1;
         }
@@ -35,15 +37,16 @@ public class Scoreboard : MonoBehaviour
 
     public void UpdateLevelScore(int level, int score)
     {
-        if (0 < level && level < totalLevels - 1)
+        if (0 < level && level <= totalLevels)
         {
-            scores[level] = score;
+            if (score < scores[level] || scores[level] == -1)
+                scores[level] = score;
         }
     }
 
     public string GetLevelScore(int level)
     {
-        if (0 < level && level < totalLevels - 1)
+        if (0 < level && level <= totalLevels)
         {
             int score = scores[level];
             if (score != -1) return score.ToString();
