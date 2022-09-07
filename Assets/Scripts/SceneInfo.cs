@@ -18,6 +18,15 @@ public class SceneInfo : MonoBehaviour
     public string GetCurrentScene() { return currentScene; }
     public string GetNextScene() { return nextScene; }
 
+    public void LoadLevel(string sceneName)
+    {
+        LevelManager levelManager = FindObjectOfType<LevelManager>();
+        if (levelManager != null)
+        {
+            levelManager.LoadScene(sceneName);
+        }
+    }
+
     public void LoadNextLevel()
     {
         LevelManager levelManager = FindObjectOfType<LevelManager>();
