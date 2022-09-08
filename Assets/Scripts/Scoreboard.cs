@@ -66,7 +66,12 @@ public class Scoreboard : MonoBehaviour
         }
         if (hasCompletedAllLevels)
         {
-            return totalScore.ToString();
+            if (totalScore == 0)
+            {
+                return "Perfect across all levels!\nYou are the best!";
+            }
+
+            return totalScore.ToString() + "\nGreat job! Aim for a prefect score.";
         }
         else return "Complete all levels to see your score!";
 

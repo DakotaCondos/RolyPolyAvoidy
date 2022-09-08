@@ -19,7 +19,16 @@ public class LevelScoreUI : MonoBehaviour
     void Start()
     {
         LevelNumberTMP.text = "Level " + LevelNumber;
-        LevelScoreTMP.text = scoreboard.GetLevelScore(LevelNumber);
+        string scoreText = scoreboard.GetLevelScore(LevelNumber);
+        if (scoreText == "0")
+        {
+            scoreText = "Perfect";
+        }
+        else if (scoreText != "N/A")
+        {
+            scoreText = "+" + scoreText;
+        }
+        LevelScoreTMP.text = scoreText;
     }
 
     public void LoadAssociatedLevel()
