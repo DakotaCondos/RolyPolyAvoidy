@@ -7,6 +7,7 @@ public class BallSpawner : MonoBehaviour
     [SerializeField] GameObject ball;
     [SerializeField] int howManyToSpawn = 10;
     [SerializeField] float spawnPerSecond = 10;
+    [SerializeField] GameObject followTarget;
 
     void Start()
     {
@@ -18,7 +19,20 @@ public class BallSpawner : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
-            Instantiate(ball, transform.position, Quaternion.identity);
+            GameObject newBall = Instantiate(ball, transform.position, Quaternion.identity);
+            if (followTarget != null)
+            {
+                FollowObject f = newBall.GetComponent<FollowObject>();
+                FollowObject m = gameObject.GetComponent<FollowObject>();
+                if (f != null)
+                {
+                    f.objectToFollow = followTarget;
+                    if (m != null)
+                    {
+                        m.moveSpeed = f.moveSpeed;
+                    }
+                }
+            }
             yield return new WaitForSeconds(1 / spawnPerSecond);
         }
     }
