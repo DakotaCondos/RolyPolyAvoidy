@@ -6,6 +6,7 @@ public class Slide : MonoBehaviour
 {
     [SerializeField] Transform[] points;
     [SerializeField] float moveSpeed = 1.5f;
+    public bool isSlideEnabled = true;
 
     int currentIndex = 0;
     Transform targetPosition;
@@ -21,6 +22,8 @@ public class Slide : MonoBehaviour
 
     private void MovementLoop()
     {
+        if (!isSlideEnabled) return;
+
         if (!IsCloseEnough())
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition.position, moveSpeed * Time.deltaTime);

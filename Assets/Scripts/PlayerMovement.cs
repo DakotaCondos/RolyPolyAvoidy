@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float zVelocityMultiplier = 1f;
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] bool movementEnabled = true;
-    private float teleportDelayTime = 2f;
+    [SerializeField] float teleportDelayTime = 2f;
 
     bool canTeleport = true;
     Vector2 rawInput;
