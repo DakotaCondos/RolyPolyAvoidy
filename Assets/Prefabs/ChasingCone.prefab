@@ -1053,6 +1053,7 @@ MonoBehaviour:
   objectStopsOnCollision:
   - {fileID: 0}
   moveSpeed: 3
+  stopOnLevelEnd: 1
 --- !u!54 &8337722655005602266
 Rigidbody:
   m_ObjectHideFlags: 0

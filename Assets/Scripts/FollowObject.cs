@@ -12,6 +12,14 @@ public class FollowObject : MonoBehaviour
     bool hasCollided = false;
     [SerializeField] public GameObject[] objectStopsOnCollision;
     [SerializeField] public float moveSpeed = 1f;
+    [SerializeField] bool stopOnLevelEnd = false;
+    bool isStopped = false;
+    EndLevelTrigger endLevelTrigger;
+
+    private void Start()
+    {
+        endLevelTrigger = FindObjectOfType<EndLevelTrigger>();
+    }
 
     void Update()
     {
@@ -52,7 +60,16 @@ public class FollowObject : MonoBehaviour
 
     private bool ContinueToFollow()
     {
-        if (!stopsOnCollision) return true;
+        if (isStopped) return false;
+        if (stopOnLevelEnd && endLevelTrigger != null)
+        {
+            if (endLevelTrigger.IsEndLevelReached())
+            {
+                isStopped = true;
+            }
+
+        }
+            if (!stopsOnCollision) return true;
         if (hasCollided) return false;
         return true;
     }

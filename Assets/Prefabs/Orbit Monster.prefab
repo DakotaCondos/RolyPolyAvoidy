@@ -52,6 +52,7 @@ MonoBehaviour:
   stopsOnCollision: 0
   objectStopsOnCollision: []
   moveSpeed: 5
+  stopOnLevelEnd: 1
 --- !u!1 &3248960484961417203
 GameObject:
   m_ObjectHideFlags: 0
