@@ -15,7 +15,11 @@ public class BestScoresUI : MonoBehaviour
     }
     void Start()
     {
-        bestScores.text = "Best Scores: " + scoreboard.GetTotalScore();
+        string prepend = "";
+        if (scoreboard.AreAllLevelsCompleted())
+            prepend = "Best Score: ";
+        bestScores.text = prepend + scoreboard.GetTotalScore();
+
     }
 
 

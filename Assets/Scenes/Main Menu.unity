@@ -1708,5 +1708,13 @@ PrefabInstance:
       propertyPath: musicTracks.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 51c592db4341fba4f935bcc9c7cb6600, type: 3}
+    - target: {fileID: 7879062722688008741, guid: 19f28926530092241b2faf4613d423bf, type: 3}
+      propertyPath: devValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879062722688008741, guid: 19f28926530092241b2faf4613d423bf, type: 3}
+      propertyPath: useDevValue
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19f28926530092241b2faf4613d423bf, type: 3}

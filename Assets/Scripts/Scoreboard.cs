@@ -7,6 +7,8 @@ public class Scoreboard : MonoBehaviour
     static Scoreboard singleton;
     int totalLevels = 30;
     private int[] scores;
+    [SerializeField] bool useDevValue;
+    [SerializeField] int devValue = 0;
     private void ManageSingleton()
     {
         if (singleton != null)
@@ -27,11 +29,15 @@ public class Scoreboard : MonoBehaviour
     }
     private void Start()
     {
+        int initialValue = -1;
+        if (useDevValue)
+            initialValue = devValue;
+
         // level 0 is ignored as a tutorial level
         scores = new int[totalLevels + 1];
         for (int i = 1; i < scores.Length; i++)
         {
-            scores[i] = -1;
+            scores[i] = initialValue;
         }
     }
 
@@ -53,6 +59,15 @@ public class Scoreboard : MonoBehaviour
             else return "N/A";
         }
         else return "Not A valid Level";
+    }
+    public bool AreAllLevelsCompleted()
+    {
+        bool hasCompletedAllLevels = true;
+        for (int i = 0; i < scores.Length; i++)
+        {
+            if (scores[i] == -1) hasCompletedAllLevels = false;
+        }
+        return hasCompletedAllLevels;
     }
 
     public string GetTotalScore()
