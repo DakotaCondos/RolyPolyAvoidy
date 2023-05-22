@@ -177,6 +177,7 @@ MonoBehaviour:
   - {fileID: 1883587673}
   - {fileID: 415250991}
   moveSpeed: 4
+  isSlideEnabled: 1
 --- !u!114 &1762166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -753,7 +754,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.65
+  m_fontSize: 42.85
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -922,6 +923,7 @@ MonoBehaviour:
   zVelocityMultiplier: 1
   moveSpeed: 6.75
   movementEnabled: 1
+  teleportDelayTime: 2
 --- !u!114 &314254480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1596,7 +1598,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.65
+  m_fontSize: 42.85
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2446,7 +2448,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.65
+  m_fontSize: 42.85
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2654,6 +2656,7 @@ MonoBehaviour:
   - {fileID: 1883587673}
   - {fileID: 1989930791}
   moveSpeed: 6
+  isSlideEnabled: 1
 --- !u!114 &835707141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2786,6 +2789,7 @@ MonoBehaviour:
   - {fileID: 1989930791}
   - {fileID: 1883587673}
   moveSpeed: 6
+  isSlideEnabled: 1
 --- !u!114 &839827163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3037,6 +3041,7 @@ MonoBehaviour:
   - {fileID: 1989930791}
   - {fileID: 415250991}
   moveSpeed: 4
+  isSlideEnabled: 1
 --- !u!114 &975105467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3169,6 +3174,7 @@ MonoBehaviour:
   - {fileID: 1989930791}
   - {fileID: 415250991}
   moveSpeed: 6
+  isSlideEnabled: 1
 --- !u!114 &1039469791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3301,6 +3307,7 @@ MonoBehaviour:
   - {fileID: 1883587673}
   - {fileID: 1989930791}
   moveSpeed: 4
+  isSlideEnabled: 1
 --- !u!114 &1062322727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3572,6 +3579,7 @@ MonoBehaviour:
   - {fileID: 415250991}
   - {fileID: 1093351878}
   moveSpeed: 4
+  isSlideEnabled: 1
 --- !u!114 &1325009939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3951,6 +3959,7 @@ MonoBehaviour:
   - {fileID: 1883587673}
   - {fileID: 415250991}
   moveSpeed: 6
+  isSlideEnabled: 1
 --- !u!114 &1431991702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4083,6 +4092,7 @@ MonoBehaviour:
   - {fileID: 1989930791}
   - {fileID: 1883587673}
   moveSpeed: 4
+  isSlideEnabled: 1
 --- !u!114 &1582348076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4409,6 +4419,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680246149}
   m_CullTransparentMesh: 1
+--- !u!1001 &1705434947
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9101933926608978288, guid: 2f64d3364a4e0044d80d9a724e36634f, type: 3}
+      propertyPath: m_Name
+      value: OutOfBounds
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101933926608978293, guid: 2f64d3364a4e0044d80d9a724e36634f, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101933926608978293, guid: 2f64d3364a4e0044d80d9a724e36634f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101933926608978293, guid: 2f64d3364a4e0044d80d9a724e36634f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101933926608978293, guid: 2f64d3364a4e0044d80d9a724e36634f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101933926608978293, guid: 2f64d3364a4e0044d80d9a724e36634f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101933926608978293, guid: 2f64d3364a4e0044d80d9a724e36634f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101933926608978293, guid: 2f64d3364a4e0044d80d9a724e36634f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101933926608978293, guid: 2f64d3364a4e0044d80d9a724e36634f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101933926608978293, guid: 2f64d3364a4e0044d80d9a724e36634f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101933926608978293, guid: 2f64d3364a4e0044d80d9a724e36634f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101933926608978293, guid: 2f64d3364a4e0044d80d9a724e36634f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2f64d3364a4e0044d80d9a724e36634f, type: 3}
 --- !u!1 &1883587672
 GameObject:
   m_ObjectHideFlags: 0
@@ -4621,7 +4688,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9308381, y: 1}
+    m_SensorSize: {x: 1.9803064, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4837,6 +4904,7 @@ MonoBehaviour:
   - {fileID: 415250991}
   - {fileID: 1093351878}
   moveSpeed: 4
+  isSlideEnabled: 1
 --- !u!114 &2051710407
 MonoBehaviour:
   m_ObjectHideFlags: 0
